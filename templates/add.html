@@ -1,0 +1,70 @@
+<!DOCTYPE html> <!-- 声明文档类型和HTML版本 -->
+<html lang="en"> <!-- 打开HTML文档，并设置语言为英语 -->
+  <head>
+    <meta charset="UTF-8"> <!-- 设置字符编码为UTF-8，确保文本正确显示 -->
+    <meta name="viewport" content="width=device-width, initial-scale=1.0"> <!-- 确保在移动设备上响应式设计 -->
+    <title>新增用户</title> <!-- 设置网页标题，在浏览器标签中显示 -->
+    <link href="{{ url_for('static', filename = 'css/bootstrap.min.css') }}" rel="stylesheet"> <!-- 引入Bootstrap CSS文件以进行样式设置 -->
+  </head>
+  <body>
+    <div class="container"> <!-- 创建一个Bootstrap容器，用于内容居中 -->
+      <div class="row justify-content-center align-items-center g-1"> <!-- 创建一行并居中内容 -->
+        <div class="col-6 pt-5"> <!-- 定义一个占据一半宽度的列，并添加上边距 -->
+          <div class="card"> <!-- 创建一个Bootstrap卡片组件 -->
+            <div class="card-header"> <!-- 卡片的头部 -->
+              新增用户 <!-- 卡片标题 -->
+            </div>
+            <div class="card-body"> <!-- 卡片的主体部分，放置表单 -->
+
+              <form action="/add" method="post"> <!-- 开始一个表单，数据提交到/add URL，使用POST方法 -->
+                <div class="row mb-3"> <!-- 创建一个行，带底部间距 -->
+                  <label for="colFormLabelSm" class="col-sm-2 col-form-label col-form-label">姓名</label> <!-- 姓名输入框的标签 -->
+                  <div class="col-sm-10"> <!-- 输入字段的列 -->
+                    <input type="text" class="form-control form-control-sm" id="colFormLabelSm" name="name" required> <!-- 姓名输入框，必填 -->
+                  </div>
+                </div>
+                <div class="row mb-3"> <!-- 年龄输入的行 -->
+                  <label for="age" class="col-sm-2 col-form-label">年龄</label> <!-- 年龄输入框的标签 -->
+                  <div class="col-sm-10"> <!-- 输入字段的列 -->
+                    <input type="text" class="form-control" id="age" name="age" required> <!-- 年龄输入框，必填 -->
+                  </div>
+                </div>
+                <div class="row mb-3"> <!-- 性别选择的行 -->
+                  <label for="inlineRadio1" class="col-sm-2 col-form-label">性别</label> <!-- 性别选择的标签 -->
+                  <div class="col-3"> <!-- 男性单选框的列 -->
+                    <input class="form-check-input" type="radio" name="gender" id="gender01" value="男"> <!-- 男性单选按钮 -->
+                    <label class="form-check-label" for="inlineRadio1">男</label> <!-- 男性单选按钮的标签 -->
+                  </div>
+                  <div class="col-2"> <!-- 女性单选框的列 -->
+                    <input class="form-check-input" type="radio" name="gender" id="gender02" value="女"> <!-- 女性单选按钮 -->
+                    <label class="form-check-label" for="inlineRadio2">女</label> <!-- 女性单选按钮的标签 -->
+                  </div>
+                </div>
+                <div class="row mb-3"> <!-- 联系电话输入的行 -->
+                  <label for="phone" class="col-sm-2 col-form-label">联系电话</label> <!-- 电话输入框的标签 -->
+                  <div class="col-sm-10"> <!-- 输入字段的列 -->
+                    <input type="text" class="form-control" id="phone" name="phone" required> <!-- 电话输入框，必填 -->
+                  </div>
+                </div>
+                <div class="row mb-3 justify-content-center align-items-center"> <!-- 按钮的行，居中 -->
+                  <div class="col-6"> <!-- 按钮的列 -->
+                    <a type="button" class="btn btn-secondary" href="/"> <!-- 取消按钮，链接到主页 -->
+                      取消 <!-- 取消按钮的标签 -->
+                    </a>
+                    <button type="submit" class="btn btn-primary"> <!-- 提交按钮，用于保存表单 -->
+                      保存 <!-- 保存按钮的标签 -->
+                    </button>
+                  </div>
+                </div>
+              </form>
+
+            </div>
+
+            <div class="bg-warning">{{success}}</div> <!-- 显示成功消息，背景为警告色，从服务器渲染 -->
+          </div>
+        </div>
+
+      </div>
+    </div>
+  </body>
+</html>
